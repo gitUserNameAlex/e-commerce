@@ -1,0 +1,49 @@
+@import "@/styles/variables.scss";
+
+.card {
+  max-width: 360px;
+  height: auto;
+  background: $card-bg;
+}
+
+.card:hover {
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.cardImg {
+  width: 100%;
+  background: $card-image-bg;
+}
+
+.cardContainer {
+  padding: $space-xl $space-xs;
+  margin-top: -4px;
+}
+
+.cardCaptionSlot {
+  margin-bottom: $space-xxs;
+}
+
+.cardTitle {
+  line-height: $space-xl;
+  margin-bottom: $space-xxs;
+}
+
+.cardSubtitle {
+  line-height: $space-l;
+}
+
+.cardFooter {
+  margin-top: $space-l;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-xxs;
+}
+
+.cardContentSlot {
+  color: #000;
+  font-size: $p-18;
+  font-weight: $bold-weight;
+}

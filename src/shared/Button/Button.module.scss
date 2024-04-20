@@ -1,0 +1,40 @@
+@import "@/styles/variables.scss";
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: $space-xxs;
+  cursor: pointer;
+  border: none;
+  padding: $space-s $space-l;
+  color: $button-primary-text;
+  background-color: $button-primary-bg;
+  min-height: 52px;
+}
+
+.btn:hover {
+  color: $button-primary-text-hover;
+  background-color: $button-primary-bg-hover;
+}
+
+.btn-loading:hover {
+  background-color: $button-primary-bg;
+  cursor: default;
+}
+
+.btn:disabled {
+  color: $button-primary-text-disabled;
+  background-color: $button-primary-bg-disabled;
+  cursor: default;
+}
+
+.btn:disabled:active {
+  color: $button-primary-text-disabled;
+  background-color: $button-primary-bg-disabled;
+  cursor: default;
+}
+
+.btn:active {
+  color: $button-primary-text-active;
+  background-color: $button-primary-bg-active;
+}

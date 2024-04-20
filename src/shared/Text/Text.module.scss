@@ -1,0 +1,53 @@
+@import "@/styles/variables.scss";
+
+.general {
+  font-family: "Roboto";
+}
+
+.button {
+  font-size: $p-18;
+}
+
+.p-20 {
+  font-size: $p-20;
+}
+
+.p-18 {
+  font-size: $p-18;
+}
+
+.p-16 {
+  font-size: $p-16;
+}
+
+.p-14 {
+  font-size: $p-14;
+}
+
+.normal {
+  font-weight: $normal-weight;
+}
+
+.medium {
+  font-weight: $medium-weight;
+}
+
+.bold {
+  font-weight: $bold-weight;
+}
+
+.primary {
+  color: $text-primary;
+}
+
+.secondary {
+  color: $text-secondary;
+}
+
+.accent {
+  color: $text-accent;
+}
+
+.inherit {
+  color: inherit;
+}

@@ -1,0 +1,17 @@
+@import "@/styles/variables.scss";
+
+.primary {
+  stroke: $text-primary;
+}
+
+.secondary {
+  stroke: $text-secondary;
+}
+
+.accent {
+  stroke: $text-accent;
+}
+
+.inherit {
+  stroke: inherit;
+}

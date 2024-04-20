@@ -1,0 +1,24 @@
+@import "@/styles/variables.scss";
+
+.dropdown {
+  flex-direction: column;
+  align-items: flex-start;
+  height: 200px;
+  gap: $space-xxs $space-l;
+}
+.options {
+  display: flex;
+  background-color: $dropdown-options-bg;
+  padding: $space-s $space-xs;
+}
+
+.openedList {
+  max-height: 200px;
+  margin-top: $space-xxs;
+  box-shadow: $my-shadow;
+  border: 1px solid #ccc;
+}
+
+.optionVal {
+  margin-left: 5px;
+}
