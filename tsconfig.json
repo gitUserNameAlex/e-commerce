@@ -9,7 +9,12 @@
     "esModuleInterop": true,
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["*"]
+      "@/App/*": ["App/*"],
+      "@/components/*": ["components/*"],
+      "@/store/*": ["store/*"],
+      "@/types/*": ["types/*"],
+      "@/config/*": ["config/*"],
+      "@/styles/*": ["styles/*"]
     },
 
     /* Bundler mode */

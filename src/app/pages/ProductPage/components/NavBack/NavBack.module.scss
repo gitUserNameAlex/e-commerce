@@ -1,0 +1,18 @@
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 64px;
+  height: 64px;
+  background: #000000;
+  border-radius: 50%;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.btn__icon {
+  transform: rotate(180deg);
+}
