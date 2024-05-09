@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import Text from '@/components/ui/Text';
+import Text from 'components/ui/Text';
 import styles from './AboutPage.module.scss';
 
 const AboutPage: FC = () => {

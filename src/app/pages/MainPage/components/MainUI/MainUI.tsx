@@ -3,12 +3,12 @@ import { runInAction } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import React, { FC, useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input';
-import MultiDropdown, { Option } from '@/components/ui/MultiDropdown';
-import { PRODUCTS_ENDPOINT } from '@/config/endpoints';
-import ProductsStore from '@/store/ProductsStore';
-import { IProduct } from '@/types/interfaces';
+import Button from 'components/ui/Button';
+import Input from 'components/ui/Input';
+import MultiDropdown, { Option } from 'components/ui/MultiDropdown';
+import { PRODUCTS_ENDPOINT } from 'config/endpoints';
+import ProductsStore from 'store/ProductsStore';
+import { IProduct } from 'types/interfaces';
 import styles from './MainUI.module.scss';
 
 const MainUI: FC = observer(() => {

@@ -1,12 +1,12 @@
 import { observer } from 'mobx-react-lite';
 import React, { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
-import Text from '@/components/ui/Text';
-import ArrowBackIcon from '@/components/ui/icons/ArrowBackIcon';
-import SingleProductStore from '@/store/SingleProductStore';
-import { IProduct } from '@/types/interfaces';
+import Button from 'components/ui/Button';
+import Card from 'components/ui/Card';
+import Text from 'components/ui/Text';
+import ArrowBackIcon from 'components/ui/icons/ArrowBackIcon';
+import SingleProductStore from 'store/SingleProductStore';
+import { IProduct } from 'types/interfaces';
 import NavBack from './components/NavBack';
 import styles from './ProductPage.module.scss';
 

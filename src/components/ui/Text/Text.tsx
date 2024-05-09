@@ -1,22 +1,22 @@
-import * as React from 'react'
-import styles from './Text.module.scss'
+import React from 'react';
+import styles from './Text.module.scss';
 
 export type TextProps = {
   /** Дополнительный класс */
-  className?: string
+  className?: string;
   /** Стиль отображения */
-  view?: 'title' | 'button' | 'p-20' | 'p-18' | 'p-16' | 'p-14'
+  view?: 'title' | 'button' | 'p-20' | 'p-18' | 'p-16' | 'p-14';
   /** Html-тег */
-  tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'p' | 'span'
+  tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'p' | 'span';
   /** Начертание шрифта */
-  weight?: 'normal' | 'medium' | 'bold'
+  weight?: 'normal' | 'medium' | 'bold';
   /** Контент */
-  children: React.ReactNode
+  children: React.ReactNode;
   /** Цвет */
-  color?: 'primary' | 'secondary' | 'accent'
+  color?: 'primary' | 'secondary' | 'accent';
   /** Максимальное кол-во строк */
-  maxLines?: number
-}
+  maxLines?: number;
+};
 
 const Text: React.FC<TextProps> = props => {
   const maxLinesStyle = props.maxLines
@@ -26,7 +26,7 @@ const Text: React.FC<TextProps> = props => {
         WebkitBoxOrient: 'vertical',
         overflow: 'hidden',
       }
-    : {}
+    : {};
 
   const elemProps = {
     className: `
@@ -37,9 +37,9 @@ const Text: React.FC<TextProps> = props => {
             ${styles[props.color || 'inherit']}
             `,
     style: maxLinesStyle,
-  }
+  };
 
-  return React.createElement(props.tag || 'p', elemProps, props.children)
-}
+  return React.createElement(props.tag || 'p', elemProps, props.children);
+};
 
-export default Text
+export default Text;

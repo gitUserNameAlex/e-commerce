@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { makeAutoObservable, runInAction } from 'mobx';
-import { SINGLE_PRODUCT_ENDPOINT, RELATED_PRODUCTS_ENDPOINT } from '@/config/endpoints';
-import { IProduct } from '@/types/interfaces';
+import React from 'react';
+import { SINGLE_PRODUCT_ENDPOINT, RELATED_PRODUCTS_ENDPOINT } from 'config/endpoints';
+import { IProduct } from 'types/interfaces';
 
 class SingleProductStore {
   productID: number | null = null;

@@ -3,10 +3,10 @@ import queryString from 'query-string';
 import React, { FC, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
-import ProductsStore from '@/store/ProductsStore';
-import { IProduct, IProductsList } from '@/types/interfaces';
+import Button from 'components/ui/Button';
+import Card from 'components/ui/Card';
+import ProductsStore from 'store/ProductsStore';
+import { IProduct, IProductsList } from 'types/interfaces';
 import styles from './ProductsList.module.scss';
 
 const ProductsList: FC<IProductsList> = observer(({ className, onCardClick }) => {

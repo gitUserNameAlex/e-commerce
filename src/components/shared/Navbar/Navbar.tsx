@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import Text from '@/components/ui/Text';
-import BagIcon from '@/components/ui/icons/BagIcon';
-import LogoIcon from '@/components/ui/icons/LogoIcon';
-import UserIcon from '@/components/ui/icons/UserIcon';
+import Text from 'components/ui/Text';
+import BagIcon from 'components/ui/icons/BagIcon';
+import LogoIcon from 'components/ui/icons/LogoIcon';
+import UserIcon from 'components/ui/icons/UserIcon';
 import { menu } from './config/menu';
 import styles from './Navbar.module.scss';
 

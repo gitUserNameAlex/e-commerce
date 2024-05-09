@@ -1,29 +1,30 @@
-import classNames from 'classnames'
-import React, { useState } from 'react'
-import styles from './CheckBox.module.scss'
+import classNames from 'classnames';
+import React, { useState } from 'react';
+// import styles from './CheckBox.module.scss';
+import './CheckBox.scss';
 
 export type CheckBoxProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> & {
   /** Вызывается при клике на чекбокс */
-  onChange: (checked: boolean) => void
-}
+  onChange: (checked: boolean) => void;
+};
 
 const CheckBox: React.FC<CheckBoxProps> = ({ className, checked, onChange, disabled, ...props }) => {
-  const [clicked, setClicked] = useState(checked)
+  const [clicked, setClicked] = useState(checked);
 
-  const labelClasses = classNames(className, disabled ? styles.labelDisabled : styles.label)
-  const iconStroke = disabled ? 'rgba(0, 0, 0, 0.2)' : '#518581'
+  const labelClasses = classNames(className, disabled ? 'labelDisabled' : 'label');
+  const iconStroke = disabled ? 'rgba(0, 0, 0, 0.2)' : '#518581';
 
   const handleInput = () => {
-    const newClicked = !clicked
-    setClicked(newClicked)
-    onChange(newClicked)
-  }
+    const newClicked = !clicked;
+    setClicked(newClicked);
+    onChange(newClicked);
+  };
 
   return (
     <label className={labelClasses}>
       <input
         type="checkbox"
-        className={styles.checkboxInp}
+        className="checkboxInp"
         disabled={disabled}
         checked={clicked}
         onClick={handleInput}
@@ -32,7 +33,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({ className, checked, onChange, disab
 
       {clicked && (
         <svg
-          className={styles.customIcon}
+          className="customIcon"
           width="40"
           height="40"
           viewBox="0 0 40 40"
@@ -43,7 +44,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({ className, checked, onChange, disab
         </svg>
       )}
     </label>
-  )
-}
+  );
+};
 
-export default CheckBox
+export default CheckBox;

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { makeAutoObservable, runInAction } from 'mobx';
-import { PRODUCTS_ENDPOINT } from '@/config/endpoints';
-import { IProduct } from '@/types/interfaces';
-
+import React from 'react';
+import { PRODUCTS_ENDPOINT } from 'config/endpoints';
+import { IProduct } from 'types/interfaces';
 class ProductsStore {
   products: IProduct[] = [];
   currentPage: number = 0;

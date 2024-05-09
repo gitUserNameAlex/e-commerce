@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import SwipeIcon from '@/components/ui/icons/SwipeIcon';
+import SwipeIcon from 'components/ui/icons/SwipeIcon';
 import styles from './NavBack.module.scss';
 
 interface NavigationButtonsProps {

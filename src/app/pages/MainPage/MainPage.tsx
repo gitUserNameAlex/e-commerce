@@ -1,9 +1,9 @@
 import { observer } from 'mobx-react-lite';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Text from '@/components/ui/Text';
-import ProductsStore from '@/store/ProductsStore';
-import SingleProductStore from '@/store/SingleProductStore';
+import Text from 'components/ui/Text';
+import ProductsStore from 'store/ProductsStore';
+import SingleProductStore from 'store/SingleProductStore';
 import MainUI from './components/MainUI';
 import ProductsList from './components/ProductsList';
 import styles from './MainPage.module.scss';
