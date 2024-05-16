@@ -1,0 +1,12 @@
+@import "styles/variables.scss";
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: calc($space-xs / 2);
+  outline: none;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}

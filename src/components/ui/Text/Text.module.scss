@@ -8,20 +8,40 @@
   font-size: $p-18;
 }
 
+.p-48 {
+  @include p-48;
+}
+
+.p-44 {
+  @include p-44;
+}
+
+.p-32 {
+  @include p-32;
+}
+
+.p-26 {
+  @include p-26;
+}
+
+.p-22 {
+  @include p-22;
+}
+
 .p-20 {
-  font-size: $p-20;
+  @include p-20;
 }
 
 .p-18 {
-  font-size: $p-18;
+  @include p-18;
 }
 
 .p-16 {
-  font-size: $p-16;
+  @include p-16;
 }
 
 .p-14 {
-  font-size: $p-14;
+  @include p-14;
 }
 
 .normal {
@@ -50,4 +70,16 @@
 
 .inherit {
   color: inherit;
+}
+
+.start {
+  text-align: start;
+}
+
+.center {
+  text-align: center;
+}
+
+.end {
+  text-align: end;
 }

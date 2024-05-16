@@ -1,0 +1,36 @@
+@import "styles/variables.scss";
+
+.ui {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+
+  &__text {
+    display: flex;
+    align-items: center;
+    gap: $space-xl;
+  }
+
+  &__search {
+    display: flex;
+    gap: $space-xl;
+  }
+
+  &__search-inp {
+    display: contents;
+
+    input {
+      font-size: $p-16;
+    }
+  }
+
+  &__search-btn {
+    white-space: nowrap;
+  }
+
+  &__filter-inp {
+    input {
+      font-size: $p-16;
+    }
+  }
+}

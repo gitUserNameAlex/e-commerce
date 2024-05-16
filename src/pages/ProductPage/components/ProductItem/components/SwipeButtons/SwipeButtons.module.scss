@@ -1,0 +1,28 @@
+@import "styles/variables.scss";
+
+.nav {
+  position: absolute;
+  top: 300px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 $space-xl;
+
+  &__btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    @include square(64px);
+    background: $custom-button-bg-square;
+    border-radius: 50%;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+
+  &__btn-icon {
+    transform: rotate(180deg);
+  }
+}

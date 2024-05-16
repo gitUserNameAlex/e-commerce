@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import React, { useState } from 'react';
-// import styles from './CheckBox.module.scss';
-import './CheckBox.scss';
+import styles from './CheckBox.module.scss';
 
 export type CheckBoxProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> & {
   /** Вызывается при клике на чекбокс */
@@ -11,7 +10,7 @@ export type CheckBoxProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'o
 const CheckBox: React.FC<CheckBoxProps> = ({ className, checked, onChange, disabled, ...props }) => {
   const [clicked, setClicked] = useState(checked);
 
-  const labelClasses = classNames(className, disabled ? 'labelDisabled' : 'label');
+  const labelClasses = classNames(className, disabled ? styles.labelDisabled : styles.label);
   const iconStroke = disabled ? 'rgba(0, 0, 0, 0.2)' : '#518581';
 
   const handleInput = () => {
@@ -24,7 +23,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({ className, checked, onChange, disab
     <label className={labelClasses}>
       <input
         type="checkbox"
-        className="checkboxInp"
+        className={styles.checkboxInp}
         disabled={disabled}
         checked={clicked}
         onClick={handleInput}
@@ -33,7 +32,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({ className, checked, onChange, disab
 
       {clicked && (
         <svg
-          className="customIcon"
+          className={styles.customIcon}
           width="40"
           height="40"
           viewBox="0 0 40 40"

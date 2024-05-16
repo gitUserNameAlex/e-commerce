@@ -1,0 +1,40 @@
+@import "styles/variables.scss";
+
+.product {
+  padding-top: $space-xxl;
+  display: flex;
+  gap: calc($space-xl * 2);
+
+  &__img {
+    position: relative;
+
+    img {
+      width: 600px;
+      height: 600px;
+    }
+  }
+
+  &__content-description {
+    padding-top: $space-xl;
+  }
+
+  &__content-price {
+    padding-top: calc($space-l * 4);
+  }
+
+  &__content-ui {
+    padding-top: calc($space-xl * 2);
+    display: flex;
+    gap: calc($space-xl * 2);
+  }
+
+  &__content-add {
+    background: $custom-button-bg;
+    color: $text-primary;
+    border: 1px solid #afadb5;
+
+    &:hover {
+      background: $custom-button-bg-hover;
+    }
+  }
+}

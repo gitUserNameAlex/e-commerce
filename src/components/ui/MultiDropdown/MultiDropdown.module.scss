@@ -32,7 +32,7 @@
 }
 
 .optionVal {
-  margin-left: 5px;
+  margin-left: calc($space-xs / 2);
 }
 
 .optionVal:hover {

@@ -1,7 +1,7 @@
-import AboutPage from 'app/pages/AboutPage';
-import CategoriesPage from 'app/pages/CategoriesPage';
-import MainPage from 'app/pages/MainPage';
-import ProductPage from 'app/pages/ProductPage';
+import AboutPage from 'pages/AboutPage';
+import CategoriesPage from 'pages/CategoriesPage';
+import MainPage from 'pages/MainPage';
+import ProductPage from 'pages/ProductPage';
 
 export const appRoutes = [
   { path: '*', component: MainPage },

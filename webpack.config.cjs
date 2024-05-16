@@ -1,6 +1,5 @@
 const path = require('path');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-// const TsCheckerPlugin = require('fork-ts-checker-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -13,7 +12,6 @@ const buildPath = path.resolve(__dirname, 'dist');
 const isProd = process.env.NODE_ENV === 'production';
 
 const getSettingsForStyles = (withModules = false) => {
-  // Заменяем в нашей функции style-loader на mini-css-extract-plugin
   return [
     isProd ? MiniCssExtractPlugin.loader : 'style-loader',
     !withModules
@@ -50,28 +48,32 @@ module.exports = {
     extensions: ['.tsx', '.jsx', '.js', '.ts'],
     alias: {
       app: path.join(srcPath, 'app'),
+      pages: path.join(srcPath, 'pages'),
       components: path.join(srcPath, 'components'),
       store: path.join(srcPath, 'store'),
       config: path.join(srcPath, 'config'),
       types: path.join(srcPath, 'types'),
       styles: path.join(srcPath, 'styles'),
+      assets: path.join(srcPath, 'assets'),
     },
   },
   plugins: [
     new HTMLWebpackPlugin({
       template: htmlPath,
     }),
-    // new TsCheckerPlugin(),
     !isProd && new ReactRefreshWebpackPlugin(),
     isProd &&
       new MiniCssExtractPlugin({
-        // Для того чтобы файл со стилями не кэшировался в браузере добавим filename
         filename: '[name]-[hash].css',
       }),
   ].filter(Boolean),
 
   module: {
     rules: [
+      {
+        test: /\.(svg)$/,
+        use: ['@svgr/webpack', 'file-loader'],
+      },
       {
         test: /\.(png|jpe?g|gif|woff|woff2)$/i,
         use: [
@@ -95,7 +97,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|svg|jpg)$/,
+        test: /\.(png|jpg)$/,
         type: 'asset',
         parser: {
           dataUrlCondition: {

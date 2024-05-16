@@ -1,0 +1,11 @@
+@import "styles/variables.scss";
+
+.related {
+  padding-top: calc($space-xl * 2);
+
+  &__list {
+    padding-top: $space-xxl;
+    display: flex;
+    justify-content: space-between;
+  }
+}

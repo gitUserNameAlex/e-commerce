@@ -1,0 +1,33 @@
+@import "styles/variables.scss";
+
+.checkboxInp {
+  display: none;
+}
+
+.label {
+  position: relative;
+  display: block;
+  background: $checkbox-bg;
+  border: 1px solid $checkbox-border;
+  @include square(40px);
+}
+
+.label:hover {
+  border: 1px solid $checkbox-border-hover;
+}
+
+.labelDisabled {
+  border: 1px solid $checkbox-border-disabled;
+  background: $checkbox-bg-disabled;
+  @include square(40px);
+  position: relative;
+  display: block;
+}
+
+.customIcon {
+  position: absolute;
+  display: inline-block;
+  @include square(40px);
+  bottom: -1px;
+  right: -1px;
+}

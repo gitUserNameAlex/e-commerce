@@ -1,19 +1,19 @@
 export interface IProduct {
   id: number;
-  images: string[]; //image
+  images: string[];
   category: IProductCategory;
-  title: string; //title
-  description: string; //subtitle
-  price: number; //contentSlot
+  title: string;
+  description: string;
+  price: number;
 }
 
-interface IProductCategory {
+export interface IProductCategory {
   id: number;
   name: string;
 }
 
 export interface IProductsList {
-  className: string;
   products: IProduct[];
-  onCardClick: (productID: number, categoryID: number) => void;
 }
+
+export type RequestStatus = 'loading' | 'success' | 'error';

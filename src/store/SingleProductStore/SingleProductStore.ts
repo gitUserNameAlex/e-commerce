@@ -1,17 +1,32 @@
 import axios from 'axios';
-import { makeAutoObservable, runInAction } from 'mobx';
-import React from 'react';
+import { makeObservable, observable, action, runInAction, computed } from 'mobx';
 import { SINGLE_PRODUCT_ENDPOINT, RELATED_PRODUCTS_ENDPOINT } from 'config/endpoints';
-import { IProduct } from 'types/interfaces';
+import ImgNavStore from 'store/ImgNavStore';
+import { IProduct, RequestStatus } from 'types/interfaces';
 
 class SingleProductStore {
   productID: number | null = null;
   categoryID: number | null = null;
   product: IProduct | null = null;
   relatedProducts: IProduct[] = [];
+  productRequestStatus: RequestStatus = 'loading';
+  relatedRequestStatus: RequestStatus = 'loading';
+  imgNavStore: ImgNavStore | null = null;
 
   constructor() {
-    makeAutoObservable(this);
+    makeObservable(this, {
+      productID: observable,
+      categoryID: observable,
+      product: observable,
+      relatedProducts: observable,
+      productRequestStatus: observable,
+      relatedRequestStatus: observable,
+      setID: action,
+      fetchProduct: action,
+      fetchRelatedProducts: action,
+      init: action,
+      formattedPrice: computed,
+    });
   }
 
   setID(productID: number, categoryID: number) {
@@ -32,9 +47,13 @@ class SingleProductStore {
           description: resp.data.description,
           price: resp.data.price,
         };
+        this.productRequestStatus = 'success';
+        this.imgNavStore = new ImgNavStore(this.product.images.length);
       });
     } catch (err) {
-      console.log('Error while fetching product:', err);
+      runInAction(() => {
+        this.productRequestStatus = 'error';
+      });
     }
   }
 
@@ -42,7 +61,7 @@ class SingleProductStore {
     if (this.categoryID == null) return;
 
     try {
-      const resp = await axios.get(RELATED_PRODUCTS_ENDPOINT(this.categoryID));
+      const resp = await axios.get(`${RELATED_PRODUCTS_ENDPOINT(this.categoryID)}?offset=0&limit=3`);
       runInAction(() => {
         this.relatedProducts = resp.data.map((relatedItem: IProduct) => ({
           id: relatedItem.id,
@@ -52,11 +71,23 @@ class SingleProductStore {
           description: relatedItem.description,
           price: relatedItem.price,
         }));
+        this.relatedRequestStatus = 'success';
       });
     } catch (err) {
-      console.log('Error while fetching related products:', err);
+      runInAction(() => {
+        this.relatedRequestStatus = 'error';
+      });
     }
+  }
+
+  init() {
+    this.fetchProduct();
+    this.fetchRelatedProducts();
+  }
+
+  get formattedPrice(): string {
+    return `$${this.product?.price}`;
   }
 }
 
-export default new SingleProductStore();
+export default SingleProductStore;

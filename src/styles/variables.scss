@@ -1,6 +1,9 @@
 /* colors */
 $loader-bg: #518581;
 $button-primary-bg: #518581;
+$custom-button-bg: #fff;
+$custom-button-bg-square: #000;
+$custom-button-bg-hover: #000;
 $button-primary-text: #fff;
 $button-primary-bg-hover: #86aaa7;
 $button-primary-text-hover: #fff;
@@ -36,22 +39,35 @@ $dropdown-options-bg: #fff;
 $brand: #518581;
 $brand-active: #487773;
 $brand-hover: #86aaa7;
-
 $navbar-bg: #ffffff;
 $app-bg: #fafafa;
-
 $my-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+/* colors */
 
 /* fontWeights */
 $normal-weight: 400;
 $medium-weight: 500;
 $bold-weight: 700;
+/* fontWeights */
 
-/* sizes */
-$gap-m: 48px;
+/* spaces */
+$page-padding: 100px 100px 100px 100px;
+$space-xxl: 32px;
+$space-xl: 24px;
+$space-l: 20px;
+$space-m: 16px;
+$space-s: 14px;
+$space-xs: 12px;
+$space-xxs: 8px;
+/* spaces */
+
+/* fontSizes */
+$p-52: 52px;
 $p-48: 48px;
 $p-44: 44px;
-$p-28: 28px;
+$p-36: 36px;
+$p-32: 32px;
+$p-30: 30px;
 $p-26: 26px;
 $p-24: 24px;
 $p-22: 22px;
@@ -59,11 +75,56 @@ $p-20: 20px;
 $p-18: 18px;
 $p-16: 16px;
 $p-14: 14px;
-$space-xl: 24px;
-$space-l: 20px;
-$space-m: 16px;
-$space-s: 14px;
-$space-xs: 12px;
-$space-xxs: 8px;
+/* fontSizes */
 
-$page-padding: 100px 100px 100px 100px;
+/* mixins */
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin p-14 {
+  font-size: $p-14;
+  line-height: $p-18;
+}
+
+@mixin p-16 {
+  font-size: $p-16;
+  line-height: $p-20;
+}
+
+@mixin p-18 {
+  font-size: $p-18;
+  line-height: $p-22;
+}
+
+@mixin p-20 {
+  font-size: $p-20;
+  line-height: $p-24;
+}
+
+@mixin p-22 {
+  font-size: $p-22;
+  line-height: $p-26;
+}
+
+@mixin p-26 {
+  font-size: $p-26;
+  line-height: $p-30;
+}
+
+@mixin p-32 {
+  font-size: $p-32;
+  line-height: $p-36;
+}
+
+@mixin p-44 {
+  font-size: $p-44;
+  line-height: $p-48;
+}
+
+@mixin p-48 {
+  font-size: $p-48;
+  line-height: $p-52;
+}
+/* mixins */

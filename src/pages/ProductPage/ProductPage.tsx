@@ -1,0 +1,35 @@
+import { observer } from 'mobx-react-lite';
+import queryString from 'query-string';
+import React, { FC, useEffect, useState } from 'react';
+import SingleProductStore from 'store/SingleProductStore';
+import ProductBack from './components/ProductBack';
+import ProductItem from './components/ProductItem';
+import ProductRelated from './components/ProductRelated';
+import styles from './ProductPage.module.scss';
+
+const ProductPage: FC = observer(() => {
+  const [store] = useState(() => new SingleProductStore());
+
+  useEffect(() => {
+    const params = queryString.parse(location.search);
+    const productID = parseInt(params.productID as string, 10);
+    const categoryID = parseInt(params.categoryID as string, 10);
+
+    if (productID && categoryID) {
+      store.setID(productID, categoryID);
+      store.init();
+    }
+  }, [location.search]);
+
+  return (
+    <div className={styles['product-page']}>
+      <ProductBack />
+
+      <ProductItem store={store} />
+
+      <ProductRelated store={store} />
+    </div>
+  );
+});
+
+export default ProductPage;

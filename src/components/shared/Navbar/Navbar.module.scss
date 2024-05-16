@@ -19,37 +19,35 @@
     gap: $space-xs;
   }
 
+  &__pages-list {
+    display: flex;
+    list-style: none;
+    gap: calc($space-xl * 2);
+    padding: 0;
+    margin: 0;
+  }
+
+  &__pages-link {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    &:visited {
+      color: black;
+    }
+
+    &:hover {
+      border-bottom: 2px solid #518581;
+      p {
+        color: #518581;
+      }
+    }
+  }
+
   &__personal {
     display: flex;
     align-items: center;
     gap: $space-xl;
-  }
-
-  &__pages {
-    &__list {
-      display: flex;
-      list-style: none;
-      gap: $gap-m;
-      padding: 0;
-      margin: 0;
-
-      &__link {
-        height: 90px;
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-      }
-
-      &__link:visited {
-        color: black;
-      }
-
-      &__link:hover {
-        border-bottom: 2px solid #518581;
-        p {
-          color: #518581;
-        }
-      }
-    }
   }
 }

@@ -1,0 +1,14 @@
+@import "styles/variables.scss";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: calc($space-xl * 2);
+  padding: $page-padding;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xxl;
+  }
+}
