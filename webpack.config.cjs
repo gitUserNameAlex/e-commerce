@@ -4,7 +4,6 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const srcPath = path.resolve(__dirname, 'src');
-const publicPath = path.resolve(__dirname, 'public');
 const entryPath = path.resolve(srcPath, 'main.tsx');
 const buildPath = path.resolve(__dirname, 'build');
 
@@ -58,7 +57,7 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: path.join(publicPath, 'index.html'),
+      template: path.join(srcPath, 'index.html'),
     }),
     !isProd && new ReactRefreshWebpackPlugin(),
     isProd &&
