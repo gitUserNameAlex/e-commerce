@@ -41,6 +41,8 @@ module.exports = {
     path: buildPath,
     filename: 'bundle.js',
     publicPath: '/',
+    //если dev режим - '/'
+    //когда deploy - './'
   },
   resolve: {
     extensions: ['.tsx', '.jsx', '.js', '.ts'],
