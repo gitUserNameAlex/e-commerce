@@ -1,9 +1,37 @@
 @import "styles/variables.scss";
 
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
 .product {
   padding-top: $space-xxl;
   display: flex;
+  align-items: center;
   gap: calc($space-xl * 2);
+  -webkit-animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
 
   &__img {
     position: relative;
@@ -11,6 +39,7 @@
     img {
       width: 600px;
       height: 600px;
+      border-radius: $border-r;
     }
   }
 
@@ -18,23 +47,31 @@
     padding-top: $space-xl;
   }
 
-  &__content-price {
-    padding-top: calc($space-l * 4);
+  &__content-footer {
+    padding-left: $space-xxs;
+    padding-right: $space-xxs;
+    padding-top: calc($space-l * 3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__content-ui {
-    padding-top: calc($space-xl * 2);
     display: flex;
-    gap: calc($space-xl * 2);
+    gap: calc($space-l);
   }
 
   &__content-add {
     background: $custom-button-bg;
     color: $text-primary;
-    border: 1px solid #afadb5;
+    border-radius: $border-r;
 
     &:hover {
       background: $custom-button-bg-hover;
     }
+  }
+
+  &__content-buy {
+    border-radius: $border-r;
   }
 }

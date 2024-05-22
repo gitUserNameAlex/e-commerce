@@ -77,24 +77,15 @@ const MainUI: FC<MainUIProps> = observer(({ store }) => {
 
   return (
     <div className={styles.ui}>
-      <div className={styles.ui__text}>
-        <Text weight="bold" color="primary" view="p-32">
-          Total Product
-        </Text>
-        <Text weight="bold" color="accent" view="p-20">
-          {store.totalProducts}
-        </Text>
-      </div>
-
       <div className={styles.ui__search}>
         <Input
           className={styles['ui__search-inp']}
           value={searchQuery}
-          placeholder="Search product"
+          placeholder="Найти продукт"
           onChange={setSearchQuery}
         />
         <Button className={styles['ui__search-btn']} onClick={handleSearch}>
-          Find now
+          Найти
         </Button>
       </div>
       <div className={styles.ui__filter}>
@@ -103,8 +94,17 @@ const MainUI: FC<MainUIProps> = observer(({ store }) => {
           options={categories}
           value={selectedCategories}
           onChange={setSelectedCategories}
-          getTitle={value => (value.length === 0 ? 'Категории' : value.map(v => v.value).join(', '))}
+          getTitle={value => (value.length === 0 ? 'Фильтр' : value.map(v => v.value).join(', '))}
         />
+      </div>
+
+      <div className={styles.ui__text}>
+        <Text weight="bold" color="primary" view="p-30">
+          Всего продуктов:
+        </Text>
+        <Text weight="bold" color="mark" view="p-30">
+          {store.totalProducts}
+        </Text>
       </div>
     </div>
   );

@@ -1,13 +1,14 @@
 import axios from 'axios';
 import { makeObservable, observable, action, computed, runInAction } from 'mobx';
-import { PRODUCTS_ENDPOINT, CATEGORIES_ENDPOINT } from 'config/endpoints';
+import { PRODUCTS_ENDPOINT, CERTAIN_CATEGORY_PRODUCTS_ENDPOINT } from 'config/endpoints';
 import PaginationStore from 'store/PaginationStore';
 import { IProduct, RequestStatus } from 'types/interfaces';
 
 class ProductsStore {
   products: IProduct[] = [];
   pagination: PaginationStore;
-  requestStatus: RequestStatus = 'loading';
+  productsRequestStatus: RequestStatus = RequestStatus.Loading;
+  productsByCategoryRequestStatus: RequestStatus = RequestStatus.Loading;
 
   constructor() {
     this.pagination = new PaginationStore();
@@ -26,7 +27,7 @@ class ProductsStore {
       const resp = await axios.get(`${PRODUCTS_ENDPOINT}${query}`);
       runInAction(() => {
         this.products = resp.data.map((product: IProduct) => ({
-          id: product.id,
+          _id: product._id,
           images: product.images,
           category: product.category,
           title: product.title,
@@ -34,11 +35,11 @@ class ProductsStore {
           price: product.price,
         }));
         this.pagination.totalItems = this.products.length;
-        this.requestStatus = 'success';
+        this.productsRequestStatus = RequestStatus.Success;
       });
     } catch (err) {
       runInAction(() => {
-        this.requestStatus = 'error';
+        this.productsRequestStatus = RequestStatus.Error;
       });
     }
   }
@@ -47,12 +48,12 @@ class ProductsStore {
     try {
       const products: IProduct[] = [];
       for (const categoryId of categoryIds) {
-        const resp = await axios.get(`${CATEGORIES_ENDPOINT}/${categoryId}/products`);
+        const resp = await axios.get(CERTAIN_CATEGORY_PRODUCTS_ENDPOINT(categoryId));
         products.push(...resp.data);
       }
       runInAction(() => {
         this.products = products.map((product: IProduct) => ({
-          id: product.id,
+          _id: product._id,
           images: product.images,
           category: product.category,
           title: product.title,
@@ -60,11 +61,11 @@ class ProductsStore {
           price: product.price,
         }));
         this.pagination.totalItems = this.products.length;
-        this.requestStatus = 'success';
+        this.productsByCategoryRequestStatus = RequestStatus.Success;
       });
     } catch (err) {
       runInAction(() => {
-        this.requestStatus = 'error';
+        this.productsByCategoryRequestStatus = RequestStatus.Error;
       });
     }
   }

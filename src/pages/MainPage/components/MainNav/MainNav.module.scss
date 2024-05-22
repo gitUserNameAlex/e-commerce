@@ -1,14 +1,42 @@
 @import "styles/variables.scss";
 
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
 .nav {
   display: flex;
   gap: $space-xs;
   align-items: center;
   justify-content: center;
   margin-top: calc($space-xl * 2);
+  -webkit-animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
 
   &__btn {
     margin: 0 5px;
+    border-radius: $border-r;
   }
 
   &__btn-expand {

@@ -5,12 +5,12 @@ import ImgNavStore from 'store/ImgNavStore';
 import { IProduct, RequestStatus } from 'types/interfaces';
 
 class SingleProductStore {
-  productID: number | null = null;
+  productID: string | null = null;
   categoryID: number | null = null;
   product: IProduct | null = null;
   relatedProducts: IProduct[] = [];
-  productRequestStatus: RequestStatus = 'loading';
-  relatedRequestStatus: RequestStatus = 'loading';
+  productRequestStatus: RequestStatus = RequestStatus.Loading;
+  relatedRequestStatus: RequestStatus = RequestStatus.Loading;
   imgNavStore: ImgNavStore | null = null;
 
   constructor() {
@@ -29,7 +29,7 @@ class SingleProductStore {
     });
   }
 
-  setID(productID: number, categoryID: number) {
+  setID(productID: string, categoryID: number) {
     this.productID = productID;
     this.categoryID = categoryID;
   }
@@ -40,19 +40,19 @@ class SingleProductStore {
       const resp = await axios.get(SINGLE_PRODUCT_ENDPOINT(this.productID));
       runInAction(() => {
         this.product = {
-          id: resp.data.id,
+          _id: resp.data._id,
           images: resp.data.images,
           category: resp.data.category,
           title: resp.data.title,
           description: resp.data.description,
           price: resp.data.price,
         };
-        this.productRequestStatus = 'success';
+        this.productRequestStatus = RequestStatus.Success;
         this.imgNavStore = new ImgNavStore(this.product.images.length);
       });
     } catch (err) {
       runInAction(() => {
-        this.productRequestStatus = 'error';
+        this.productRequestStatus = RequestStatus.Error;
       });
     }
   }
@@ -61,21 +61,21 @@ class SingleProductStore {
     if (this.categoryID == null) return;
 
     try {
-      const resp = await axios.get(`${RELATED_PRODUCTS_ENDPOINT(this.categoryID)}?offset=0&limit=3`);
+      const resp = await axios.get(RELATED_PRODUCTS_ENDPOINT(this.categoryID));
       runInAction(() => {
         this.relatedProducts = resp.data.map((relatedItem: IProduct) => ({
-          id: relatedItem.id,
+          _id: relatedItem._id,
           images: relatedItem.images,
           category: relatedItem.category,
           title: relatedItem.title,
           description: relatedItem.description,
           price: relatedItem.price,
         }));
-        this.relatedRequestStatus = 'success';
+        this.relatedRequestStatus = RequestStatus.Success;
       });
     } catch (err) {
       runInAction(() => {
-        this.relatedRequestStatus = 'error';
+        this.relatedRequestStatus = RequestStatus.Error;
       });
     }
   }
@@ -86,7 +86,7 @@ class SingleProductStore {
   }
 
   get formattedPrice(): string {
-    return `$${this.product?.price}`;
+    return `${this.product?.price}₽`;
   }
 }
 

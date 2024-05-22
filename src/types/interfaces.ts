@@ -1,5 +1,5 @@
 export interface IProduct {
-  id: number;
+  _id: string;
   images: string[];
   category: IProductCategory;
   title: string;
@@ -16,4 +16,8 @@ export interface IProductsList {
   products: IProduct[];
 }
 
-export type RequestStatus = 'loading' | 'success' | 'error';
+export enum RequestStatus {
+  Loading = 'loading',
+  Success = 'success',
+  Error = 'error',
+}

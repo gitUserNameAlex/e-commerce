@@ -3,8 +3,8 @@ import SwipeIcon from 'components/ui/icons/SwipeIcon';
 import styles from './SwipeButtons.module.scss';
 
 interface SwipeButtonsProps {
-  prevImg: () => void;
-  nextImg: () => void;
+  prevImg: VoidFunction;
+  nextImg: VoidFunction;
   imgIdx: number;
   imgCount: number;
 }

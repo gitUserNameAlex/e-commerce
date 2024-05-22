@@ -1,5 +1,30 @@
 @import "styles/variables.scss";
 
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -9,4 +34,6 @@
   background: none;
   padding: 0;
   cursor: pointer;
+  -webkit-animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
 }

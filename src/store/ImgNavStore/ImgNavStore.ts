@@ -8,10 +8,10 @@ class ImgNavStore {
     makeObservable(this, {
       currentImageIndex: observable,
       imageCount: observable,
-      nextImage: action,
-      prevImage: action,
-      setImageCount: action,
-      setCurrentImageIndex: action,
+      nextImage: action.bound,
+      prevImage: action.bound,
+      setImageCount: action.bound,
+      setCurrentImageIndex: action.bound,
     });
 
     this.imageCount = imageCount;

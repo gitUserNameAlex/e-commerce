@@ -1,14 +1,42 @@
 @import "styles/variables.scss";
 
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
 .ui {
   display: flex;
   flex-direction: column;
   gap: $space-xl;
+  -webkit-animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
 
   &__text {
     display: flex;
     align-items: center;
     gap: $space-xl;
+    padding-top: $space-xxl;
   }
 
   &__search {
@@ -21,16 +49,21 @@
 
     input {
       font-size: $p-16;
+      font-family: "Montserrat Alternates";
+      border-radius: $border-r;
     }
   }
 
   &__search-btn {
     white-space: nowrap;
+    border-radius: $border-r;
   }
 
   &__filter-inp {
     input {
       font-size: $p-16;
+      font-family: "Montserrat Alternates";
+      border-radius: $border-r;
     }
   }
 }

@@ -25,33 +25,36 @@
   }
 }
 
-.about {
-  padding: $page-padding;
+.text {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: calc($space-l * 3);
 
-  &__icon {
+  &__greeting {
+    -webkit-animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  }
+
+  &__why {
+    padding-top: calc($space-xxl * 3);
     -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
     animation: text-focus-in 1s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
   }
 
-  &__text {
-    max-width: 50vw;
-    margin: 0 auto;
+  &__reason-first {
+    padding-top: calc($space-xl * 2);
     -webkit-animation: text-focus-in 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
     animation: text-focus-in 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
   }
 
-  &__link {
-    -webkit-animation: text-focus-in 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
-    animation: text-focus-in 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
-    text-decoration: none;
+  &__reason-second {
+    padding-top: calc($space-xl * 2);
+    -webkit-animation: text-focus-in 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    animation: text-focus-in 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
   }
 
-  &__text-name {
-    color: $text-mark;
+  &__reason-third {
+    padding-top: calc($space-xl * 2);
+    -webkit-animation: text-focus-in 2.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    animation: text-focus-in 2.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
   }
 }

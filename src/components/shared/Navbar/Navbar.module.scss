@@ -11,12 +11,11 @@
   align-items: center;
   padding: 0 100px;
   min-height: 90px;
-  border-bottom: 2px solid rgba(243, 243, 243, 1);
 
   &__logo {
     display: flex;
     align-items: center;
-    gap: $space-xs;
+    cursor: pointer;
   }
 
   &__pages-list {
@@ -33,15 +32,18 @@
     align-items: center;
     text-decoration: none;
 
-    &:visited {
-      color: black;
-    }
-
     &:hover {
-      border-bottom: 2px solid #518581;
+      border-bottom: 2px solid $text-mark;
       p {
-        color: #518581;
+        color: $text-mark;
       }
+    }
+  }
+
+  &__pages-link--active {
+    border-bottom: 2px solid $text-mark;
+    p {
+      color: $text-mark;
     }
   }
 
@@ -49,5 +51,9 @@
     display: flex;
     align-items: center;
     gap: $space-xl;
+  }
+
+  &__personal-icon {
+    cursor: pointer;
   }
 }

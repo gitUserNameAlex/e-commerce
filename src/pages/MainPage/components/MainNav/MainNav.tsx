@@ -33,6 +33,7 @@ const MainNav: FC<MainNavProps> = observer(({ store }) => {
   return (
     <div className={styles.nav}>
       <Button
+        className={styles.nav__btn}
         onClick={() => handlePageChange(store.pagination.currentPage - 1)}
         disabled={store.pagination.currentPage === 0}
       >
@@ -55,6 +56,7 @@ const MainNav: FC<MainNavProps> = observer(({ store }) => {
         ),
       )}
       <Button
+        className={styles.nav__btn}
         onClick={() => handlePageChange(store.pagination.currentPage + 1)}
         disabled={store.pagination.currentPage === store.pagination.pageCount - 1}
       >

@@ -1,11 +1,52 @@
 @import "styles/variables.scss";
 
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
 .related {
-  padding-top: calc($space-xl * 2);
+  margin-top: calc($space-xxl * 4);
+  -webkit-animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
 
   &__list {
-    padding-top: $space-xxl;
+    padding-top: calc($space-xxl * 3);
     display: flex;
     justify-content: space-between;
+  }
+
+  &__card-btn {
+    border-radius: $border-r;
+    color: $text-primary;
+    background: $custom-button-bg;
+
+    &:hover {
+      background: $custom-button-bg-hover;
+    }
+
+    &:active {
+      background: $custom-button-bg-active;
+    }
   }
 }

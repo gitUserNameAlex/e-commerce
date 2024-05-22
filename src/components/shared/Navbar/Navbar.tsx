@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Text from 'components/ui/Text';
 import BagIcon from 'components/ui/icons/BagIcon';
 import LogoIcon from 'components/ui/icons/LogoIcon';
@@ -11,29 +11,35 @@ const Navbar: FC = () => {
   return (
     <div className={styles.navbar}>
       <div className={styles.navbar__logo}>
-        <LogoIcon width={42} height={42} />
-        <Text color="primary" weight="bold" view="p-18">
-          Lalasia
-        </Text>
+        <NavLink to={'/'}>
+          <LogoIcon width={68} height={68} />
+        </NavLink>
       </div>
 
       <nav className={styles.navbar__pages}>
         <ul className={styles['navbar__pages-list']}>
           {menu.map((item, idx) => (
             <li key={idx}>
-              <Link to={item.link} className={styles['navbar__pages-link']}>
-                <Text color="primary" view="p-18" weight="normal">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles['navbar__pages-link']} ${styles['navbar__pages-link--active']}`
+                    : styles['navbar__pages-link']
+                }
+                to={item.link}
+              >
+                <Text color="accent" view="p-18" weight="normal">
                   {item.title}
                 </Text>
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
       </nav>
 
       <div className={styles.navbar__personal}>
-        <UserIcon width={30} height={30} />
-        <BagIcon width={30} height={30} />
+        <UserIcon className={styles['navbar__personal-icon']} width={30} height={30} />
+        <BagIcon className={styles['navbar__personal-icon']} width={30} height={30} />
       </div>
     </div>
   );

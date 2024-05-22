@@ -1,5 +1,30 @@
 @import "styles/variables.scss";
 
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -7,4 +32,16 @@
   max-width: 650px;
   text-align: center;
   margin: 0 auto;
+  padding-top: calc($space-xl * 2);
+  padding-bottom: calc($space-xl * 2);
+
+  &__title {
+    -webkit-animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  }
+
+  &__text {
+    -webkit-animation: text-focus-in 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    animation: text-focus-in 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  }
 }
