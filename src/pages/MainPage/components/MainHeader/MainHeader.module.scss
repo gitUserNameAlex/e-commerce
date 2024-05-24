@@ -1,0 +1,98 @@
+@import "styles/variables.scss";
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+  max-width: 650px;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: calc($space-xl * 2);
+  padding-bottom: calc($space-xl * 2);
+
+  &__title {
+    -webkit-animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  }
+
+  &__text {
+    -webkit-animation: text-focus-in 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    animation: text-focus-in 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  }
+}
+
+@media (max-width: 550px) {
+  .header {
+    gap: $space-l;
+    max-width: 500px;
+    padding-top: calc($space-m * 2);
+    padding-bottom: calc($space-m * 2);
+
+    &__title {
+      font-size: $p-32;
+    }
+
+    &__text {
+      font-size: $p-16;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .header {
+    gap: $space-m;
+    max-width: 400px;
+    padding-top: calc($space-s * 2);
+    padding-bottom: calc($space-s * 2);
+
+    &__title {
+      font-size: $p-28;
+    }
+
+    &__text {
+      font-size: $p-14;
+    }
+  }
+}
+
+@media (max-width: 370px) {
+  .header {
+    gap: $space-s;
+    max-width: 320px;
+    padding-top: $space-m;
+    padding-bottom: $space-m;
+
+    &__title {
+      font-size: $p-24;
+    }
+
+    &__text {
+      @include p-14;
+    }
+  }
+}

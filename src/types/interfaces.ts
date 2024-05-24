@@ -1,13 +1,23 @@
 export interface IProduct {
-  id: number
-  images: string[] //image
-  category: IProductCategory
-  title: string //title
-  description: string //subtitle
-  price: number //contentSlot
+  _id: string;
+  images: string[];
+  category: IProductCategory;
+  title: string;
+  description: string;
+  price: number;
 }
 
 export interface IProductCategory {
-  id: number
-  name: string
+  id: number;
+  name: string;
+}
+
+export interface IProductsList {
+  products: IProduct[];
+}
+
+export enum RequestStatus {
+  Loading = 'loading',
+  Success = 'success',
+  Error = 'error',
 }

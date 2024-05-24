@@ -1,0 +1,109 @@
+@import "styles/variables.scss";
+
+.general {
+  font-family: "Montserrat Alternates";
+}
+
+.button {
+  font-size: $p-18;
+}
+
+.p-48 {
+  @include p-48;
+}
+
+.p-44 {
+  @include p-44;
+}
+
+.p-32 {
+  @include p-32;
+}
+
+.p-30 {
+  @include p-30;
+}
+
+.p-28 {
+  @include p-28;
+}
+
+.p-26 {
+  @include p-26;
+}
+
+.p-24 {
+  @include p-24;
+}
+
+.p-22 {
+  @include p-22;
+}
+
+.p-20 {
+  @include p-20;
+}
+
+.p-18 {
+  @include p-18;
+}
+
+.p-16 {
+  @include p-16;
+}
+
+.p-14 {
+  @include p-14;
+}
+
+.normal {
+  font-weight: $normal-weight;
+}
+
+.medium {
+  font-weight: $medium-weight;
+}
+
+.bold {
+  font-weight: $bold-weight;
+}
+
+.primary {
+  color: $text-primary;
+}
+
+.secondary {
+  color: $text-secondary;
+}
+
+.accent {
+  color: $text-accent;
+}
+
+.light {
+  color: $text-light;
+}
+
+.mark {
+  color: $text-mark;
+}
+
+.bright {
+  color: $text-bright;
+}
+
+.inherit {
+  color: inherit;
+}
+
+.start {
+  text-align: start;
+}
+
+.center {
+  text-align: center;
+}
+
+.end {
+  text-align: end;
+}

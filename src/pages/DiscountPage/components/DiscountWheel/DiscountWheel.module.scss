@@ -1,0 +1,145 @@
+@import "styles/variables.scss";
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.wheel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  animation: text-focus-in 1s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+
+  &__marker {
+    position: absolute;
+    @include square(40px);
+    border-radius: 50%;
+    background-color: $marker-bg;
+    margin-left: 370px;
+  }
+
+  &__main {
+    @include square(400px);
+    border-radius: 50%;
+    position: relative;
+    border: 2px solid $wheel-border;
+    overflow: hidden;
+    box-shadow: $my-shadow;
+  }
+
+  &__main-segment {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 50%, 100% 0, 100% 100%);
+    transform-origin: 50% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__main-label {
+    position: absolute;
+    top: 48%;
+    left: 85%;
+    transform: translate(-60%, -60%) rotate(0deg);
+    font-weight: bold;
+    font-size: $p-26;
+    color: #fff;
+  }
+
+  &__btn {
+    margin-top: calc($space-xxl * 2);
+    border-radius: $border-r;
+    -webkit-animation: text-focus-in 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    animation: text-focus-in 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  }
+
+  &__discount {
+    margin-top: calc($space-l * 2);
+    font-size: $p-32;
+    font-weight: bold;
+    color: $text-mark;
+    -webkit-animation: text-focus-in 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    animation: text-focus-in 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  }
+}
+
+@media (max-width: 600px) {
+  .wheel {
+    &__main {
+      @include square(300px);
+    }
+
+    &__marker {
+      @include square(30px);
+      margin-left: 300px;
+    }
+
+    &__btn {
+      margin-top: calc($space-l * 2);
+      width: 200px;
+      p {
+        font-size: $p-16;
+      }
+    }
+
+    &__discount {
+      margin-top: calc($space-m * 2);
+      font-size: $p-24;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .wheel {
+    &__main {
+      @include square(240px);
+    }
+
+    &__marker {
+      @include square(25px);
+      margin-left: 220px;
+    }
+
+    &__main-label {
+      font-size: $p-18;
+    }
+
+    &__btn {
+      margin-top: calc($space-l * 2);
+      width: 150px;
+      height: 40px;
+      p {
+        font-size: $p-12;
+      }
+    }
+
+    &__discount {
+      margin-top: calc($space-s * 2);
+      font-size: $p-18;
+    }
+  }
+}

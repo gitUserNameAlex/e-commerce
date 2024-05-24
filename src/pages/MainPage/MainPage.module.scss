@@ -1,31 +1,27 @@
-@import "@/styles/variables.scss";
+@import "styles/variables.scss";
 
-.mainPage {
+.main {
   display: flex;
   flex-direction: column;
   gap: calc($space-xl * 2);
   padding: $page-padding;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xxl;
+  }
 }
 
-.mainContent {
-  display: flex;
-  flex-direction: column;
-  gap: calc($space-m * 2);
+@media (max-width: 650px) {
+  .main {
+    padding: $page-padding-m;
+  }
 }
 
-.productsList {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-row-gap: 30px;
-  grid-column-gap: 80px;
-}
-
-.productsListText {
-  display: flex;
-  align-items: center;
-  gap: $space-xl;
-}
-
-.productsListTitle {
-  font-size: calc($p-16 * 2);
+@media (max-width: 550px) {
+  .main {
+    padding: $page-padding-s;
+    gap: $space-xxl;
+  }
 }

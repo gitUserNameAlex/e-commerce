@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   root: true,
@@ -36,6 +36,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'warn',
     'import/no-named-as-default': 0,
     'react/no-unescaped-entities': 'off',
+    'import/no-unresolved': ['off', { caseSensitive: false }],
     'import/order': [
       'error',
       {
@@ -67,4 +68,4 @@ module.exports = {
       version: 'detect',
     },
   },
-}
+};
