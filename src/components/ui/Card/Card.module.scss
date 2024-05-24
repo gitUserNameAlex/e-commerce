@@ -1,0 +1,73 @@
+@import "styles/variables.scss";
+
+.card {
+  cursor: pointer;
+  max-width: 360px;
+  height: 100%;
+  background: $card-bg;
+  border-radius: $border-r;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  &__img {
+    width: 100%;
+    background: $card-image-bg;
+    border-top-left-radius: $border-r;
+    border-top-right-radius: $border-r;
+    object-fit: cover;
+    height: 60%;
+  }
+
+  &__container {
+    padding: $space-xl $space-xs;
+    margin-top: -4px;
+  }
+
+  &__caption-slot {
+    margin-bottom: $space-xxs;
+  }
+
+  &__title {
+    line-height: $space-xl;
+    margin-bottom: $space-xxs;
+  }
+
+  &__subtitle {
+    line-height: $space-l;
+  }
+
+  &__footer {
+    margin-top: $space-l;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $space-xxs;
+  }
+
+  &__content-slot {
+    color: $text-secondary;
+    font-size: $p-18;
+    font-weight: $bold-weight;
+  }
+}
+
+@media (max-width: 700px) {
+  .card {
+    &__title {
+      @include p-16;
+    }
+
+    &__subtitle {
+      @include p-14;
+    }
+
+    &__content-slot {
+      font-size: $p-14;
+    }
+  }
+}

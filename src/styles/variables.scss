@@ -1,0 +1,165 @@
+/* colors */
+$wheel-border: #ffffff;
+$marker-bg: #e62654;
+$loader-bg: #8a8bd9;
+
+$button-primary-bg: #ffffff;
+$button-primary-text: #8a8bd9;
+
+$button-primary-bg-hover: #60619e;
+$button-primary-text-hover: #ffffff;
+
+$button-primary-bg-active: #acacec;
+$button-primary-text-active: #ffffff;
+
+$form-button-bg: #8a8bd9;
+
+$custom-button-bg: #e62654;
+$custom-button-bg-hover: #f35b7e;
+$custom-button-bg-active: #950c2c;
+$custom-button-bg-square: #000000;
+
+$button-primary-bg-disabled: #000000;
+$button-primary-text-disabled: #ffffff;
+
+$text-primary: #ffffff;
+$text-secondary: #000000;
+$text-accent: #8a8bd9;
+$text-light: #afadb5;
+$text-mark: #e62654;
+$text-bright: #ffa800;
+
+$input-text: #000000;
+$input-bg: #ffffff;
+$input-placeholder: #afadb5;
+$input-border: #ffffff;
+$input-bg-focus: #ffffff;
+$input-border-focus: #6e6faf;
+$input-text-focus: #000000;
+$input-bg-disabled: #ffffff;
+$input-border-disabled: #ffffff;
+$input-text-disabled: rgba(0, 0, 0, 0.2);
+
+$card-image-bg: #d9d9d9;
+$card-bg: #ffffff;
+
+$dropdown-options-bg: #ffffff;
+
+$brand: #8a8bd9;
+$brand-active: #acacec;
+$brand-hover: #60619e;
+
+$navbar-bg: #ffffff;
+$form-bg: #ffffff;
+$app-bg: #8a8bd9;
+
+$my-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+/* colors */
+
+/* fontWeights */
+$normal-weight: 400;
+$medium-weight: 500;
+$bold-weight: 700;
+/* fontWeights */
+
+/* spaces */
+$page-padding: 100px;
+$page-padding-m: 50px;
+$page-padding-s: 30px;
+$space-xxl: 32px;
+$space-xl: 24px;
+$space-l: 20px;
+$space-m: 16px;
+$space-s: 14px;
+$space-xs: 12px;
+$space-xxs: 8px;
+$border-r: 10px;
+/* spaces */
+
+/* fontSizes */
+$p-52: 52px;
+$p-48: 48px;
+$p-44: 44px;
+$p-36: 36px;
+$p-34: 34px;
+$p-32: 32px;
+$p-30: 30px;
+$p-28: 28px;
+$p-26: 26px;
+$p-24: 24px;
+$p-22: 22px;
+$p-20: 20px;
+$p-18: 18px;
+$p-16: 16px;
+$p-14: 14px;
+$p-12: 12px;
+$p-10: 10px;
+/* fontSizes */
+
+/* mixins */
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin p-14 {
+  font-size: $p-14;
+  line-height: $p-18;
+}
+
+@mixin p-16 {
+  font-size: $p-16;
+  line-height: $p-20;
+}
+
+@mixin p-18 {
+  font-size: $p-18;
+  line-height: $p-22;
+}
+
+@mixin p-20 {
+  font-size: $p-20;
+  line-height: $p-24;
+}
+
+@mixin p-22 {
+  font-size: $p-22;
+  line-height: $p-26;
+}
+
+@mixin p-24 {
+  font-size: $p-24;
+  line-height: $p-28;
+}
+
+@mixin p-26 {
+  font-size: $p-26;
+  line-height: $p-30;
+}
+
+@mixin p-28 {
+  font-size: $p-28;
+  line-height: $p-32;
+}
+
+@mixin p-30 {
+  font-size: $p-30;
+  line-height: $p-34;
+}
+
+@mixin p-32 {
+  font-size: $p-32;
+  line-height: $p-36;
+}
+
+@mixin p-44 {
+  font-size: $p-44;
+  line-height: $p-48;
+}
+
+@mixin p-48 {
+  font-size: $p-48;
+  line-height: $p-52;
+}
+
+/* mixins */

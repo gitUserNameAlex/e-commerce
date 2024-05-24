@@ -1,0 +1,54 @@
+@import "styles/variables.scss";
+
+.nav {
+  position: absolute;
+  top: 300px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 $space-xl;
+
+  &__btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    @include square(64px);
+    background: $custom-button-bg-square;
+    border-radius: 50%;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+
+  &__btn-icon {
+    transform: rotate(180deg);
+  }
+}
+
+@media (max-width: 1200px) {
+  .nav {
+    top: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    top: 150px;
+
+    &__btn {
+      @include square(51px);
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .nav {
+    top: 130px;
+
+    &__btn {
+      @include square(41px);
+    }
+  }
+}

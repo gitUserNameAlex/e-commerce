@@ -1,0 +1,100 @@
+@import "styles/variables.scss";
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.related {
+  margin-top: calc($space-xxl * 4);
+  -webkit-animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+
+  &__list {
+    padding-top: calc($space-xxl * 3);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__card-btn {
+    border-radius: $border-r;
+    color: $text-primary;
+    background: $custom-button-bg;
+
+    &:hover {
+      background: $custom-button-bg-hover;
+    }
+
+    &:active {
+      background: $custom-button-bg-active;
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .related {
+    margin-top: calc($space-xxl * 3);
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: $space-xxl;
+      padding-top: calc($space-l * 3);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .related {
+    margin-top: calc($space-m * 3);
+    &__title {
+      font-size: $p-26;
+      text-align: center;
+    }
+    &__list {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .related {
+    margin-top: calc($space-s * 3);
+    &__list {
+      padding-top: calc($space-s * 2);
+    }
+    &__title {
+      @include p-20;
+    }
+    &__card-btn {
+      width: 110px;
+      height: 45px;
+      p {
+        font-size: $p-12;
+      }
+    }
+  }
+}

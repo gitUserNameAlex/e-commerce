@@ -1,0 +1,116 @@
+@import "styles/variables.scss";
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+
+  &__greeting {
+    -webkit-animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  }
+
+  &__why {
+    padding-top: calc($space-xxl * 3);
+    -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    animation: text-focus-in 1s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  }
+
+  &__reason-first {
+    padding-top: calc($space-xl * 2);
+    -webkit-animation: text-focus-in 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    animation: text-focus-in 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  }
+
+  &__reason-second {
+    padding-top: calc($space-xl * 2);
+    -webkit-animation: text-focus-in 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    animation: text-focus-in 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  }
+
+  &__reason-third {
+    padding-top: calc($space-xl * 2);
+    -webkit-animation: text-focus-in 2.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    animation: text-focus-in 2.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  }
+}
+
+@media (max-width: 800px) {
+  .text {
+    &__greeting {
+      @include p-22;
+    }
+
+    &__why {
+      padding-top: calc($space-l * 3);
+      @include p-18;
+    }
+
+    &__reason-first {
+      padding-top: calc($space-l * 2);
+      @include p-18;
+    }
+
+    &__reason-second {
+      padding-top: calc($space-l * 2);
+      @include p-18;
+    }
+
+    &__reason-third {
+      padding-top: calc($space-l * 2);
+      @include p-18;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .text {
+    &__greeting {
+      @include p-18;
+    }
+
+    &__why {
+      padding-top: calc($space-m * 2);
+      @include p-14;
+    }
+
+    &__reason-first {
+      padding-top: calc($space-m * 2);
+      @include p-14;
+    }
+
+    &__reason-second {
+      padding-top: calc($space-m * 2);
+      @include p-14;
+    }
+
+    &__reason-third {
+      padding-top: calc($space-m * 2);
+      @include p-14;
+    }
+  }
+}
