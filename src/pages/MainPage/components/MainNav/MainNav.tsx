@@ -34,7 +34,9 @@ const MainNav: FC<MainNavProps> = observer(({ store }) => {
     <div className={styles.nav}>
       <Button
         className={styles.nav__btn}
-        onClick={() => handlePageChange(store.pagination.currentPage - 1)}
+        onClick={() => {
+          handlePageChange(store.pagination.currentPage - 1);
+        }}
         disabled={store.pagination.currentPage === 0}
       >
         &lt;
@@ -44,7 +46,9 @@ const MainNav: FC<MainNavProps> = observer(({ store }) => {
           <Button
             className={styles.nav__btn}
             key={index}
-            onClick={() => handlePageChange(page - 1)}
+            onClick={() => {
+              handlePageChange(page - 1);
+            }}
             disabled={store.pagination.currentPage === page - 1}
           >
             {page}
@@ -57,7 +61,9 @@ const MainNav: FC<MainNavProps> = observer(({ store }) => {
       )}
       <Button
         className={styles.nav__btn}
-        onClick={() => handlePageChange(store.pagination.currentPage + 1)}
+        onClick={() => {
+          handlePageChange(store.pagination.currentPage + 1);
+        }}
         disabled={store.pagination.currentPage === store.pagination.pageCount - 1}
       >
         &gt;

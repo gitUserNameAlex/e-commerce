@@ -25,49 +25,22 @@
   }
 }
 
-.nav {
+.text {
   display: flex;
-  gap: $space-xs;
-  align-items: center;
+  padding-top: calc($space-xxl * 4);
   justify-content: center;
-  margin-top: calc($space-xl * 2);
   -webkit-animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
   animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+}
 
-  &__btn {
-    margin: 0 5px;
-    border-radius: $border-r;
-  }
-
-  &__btn-expand {
-    margin: 0 5px;
+@media (max-width: 600px) {
+  .text {
+    font-size: $p-28;
   }
 }
 
 @media (max-width: 600px) {
-  .nav {
-    margin-top: $space-xl;
-
-    &__btn {
-      margin: 0 0px;
-      @include square(30px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      p {
-        font-size: $p-12;
-      }
-    }
-
-    &__btn-expand {
-      margin: 0 0px;
-      @include square(30px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      p {
-        font-size: $p-12;
-      }
-    }
+  .text {
+    font-size: $p-22;
   }
 }

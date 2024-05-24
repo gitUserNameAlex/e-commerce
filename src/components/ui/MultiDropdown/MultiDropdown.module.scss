@@ -28,7 +28,6 @@
   overflow-y: auto;
   margin-top: $space-xxs;
   box-shadow: $my-shadow;
-  border: 1px solid #ccc;
 }
 
 .optionVal {
@@ -37,4 +36,10 @@
 
 .optionVal:hover {
   color: $text-accent;
+}
+
+@media (max-width: 500px) {
+  .optionVal {
+    font-size: $p-12;
+  }
 }

@@ -32,13 +32,6 @@
   -webkit-animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
   animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
 
-  &__text {
-    display: flex;
-    align-items: center;
-    gap: $space-xl;
-    padding-top: $space-xxl;
-  }
-
   &__search {
     display: flex;
     gap: $space-xl;
@@ -54,7 +47,19 @@
     }
   }
 
-  &__search-btn {
+  &__filter {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__filter-container {
+    display: flex;
+    gap: $space-l;
+  }
+
+  &__filter-btn {
+    width: 110px;
+    height: 52px;
     white-space: nowrap;
     border-radius: $border-r;
   }
@@ -64,6 +69,122 @@
       font-size: $p-16;
       font-family: "Montserrat Alternates";
       border-radius: $border-r;
+    }
+  }
+
+  &__clear-btn {
+    height: 52px;
+    white-space: nowrap;
+    border-radius: $border-r;
+    background-color: $custom-button-bg;
+    color: $text-primary;
+
+    &:hover {
+      background: $custom-button-bg-hover;
+    }
+
+    &:active {
+      background: $custom-button-bg-active;
+    }
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    gap: $space-xl;
+    padding-top: $space-xxl;
+  }
+}
+
+@media (max-width: 900px) {
+  .ui {
+    gap: $space-l;
+
+    &__search {
+      display: flex;
+      gap: $space-l;
+    }
+
+    &__search-inp {
+      input {
+        height: 45px;
+        font-size: $p-14;
+      }
+    }
+
+    &__filter {
+      flex-direction: column;
+      gap: $space-l;
+    }
+
+    &__filter-container {
+      justify-content: center;
+      gap: $space-s;
+    }
+
+    &__filter-btn {
+      width: 110px;
+      height: 45px;
+    }
+
+    &__filter-inp {
+      display: contents;
+      input {
+        height: 45px;
+        font-size: $p-14;
+      }
+    }
+
+    &__clear-btn {
+      height: 45px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .ui {
+    &__text {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .ui {
+    &__search-inp {
+      input {
+        height: 40px;
+        font-size: $p-12;
+      }
+    }
+    &__clear-btn {
+      height: 40px;
+      p {
+        font-size: $p-12;
+      }
+    }
+
+    &__filter-inp {
+      input {
+        height: 40px;
+        font-size: $p-12;
+      }
+    }
+
+    &__filter-btn {
+      height: 40px;
+      p {
+        font-size: $p-12;
+      }
+      padding: 14px 30px;
+    }
+    &__text {
+      gap: $space-m;
+      padding-top: $space-xl;
+      justify-content: center;
+      p {
+        font-size: $p-22;
+      }
     }
   }
 }

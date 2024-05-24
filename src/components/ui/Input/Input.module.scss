@@ -3,7 +3,7 @@
 .inpContainer {
   position: relative;
   display: inline-block;
-  min-width: 350px;
+  min-width: 450px;
 }
 
 .inp {
@@ -35,4 +35,16 @@
   top: 50%;
   transform: translateY(-50%);
   right: $space-m;
+}
+
+@media (max-width: 950px) {
+  .inpContainer {
+    min-width: 350px;
+  }
+}
+
+@media (max-width: 450px) {
+  .inpContainer {
+    min-width: 150px;
+  }
 }

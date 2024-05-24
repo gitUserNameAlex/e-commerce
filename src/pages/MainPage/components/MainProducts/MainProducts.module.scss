@@ -28,9 +28,9 @@
 .products {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(3, 1fr);
-  grid-row-gap: 30px;
-  grid-column-gap: 80px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-row-gap: calc($space-xl * 3);
+  grid-column-gap: calc($space-xl * 3);
 
   &__btn {
     border-radius: $border-r;
@@ -49,5 +49,38 @@
   &__motion {
     -webkit-animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
     animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  }
+}
+
+@media (max-width: 800px) {
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+    &__btn {
+      height: 40px;
+      p {
+        font-size: $p-14;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .products {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xl;
+
+    &__motion {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__btn {
+      height: 40px;
+      p {
+        font-size: $p-14;
+      }
+    }
   }
 }

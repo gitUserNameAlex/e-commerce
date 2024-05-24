@@ -58,3 +58,59 @@
     animation: text-focus-in 2.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
   }
 }
+
+@media (max-width: 800px) {
+  .text {
+    &__greeting {
+      @include p-22;
+    }
+
+    &__why {
+      padding-top: calc($space-l * 3);
+      @include p-18;
+    }
+
+    &__reason-first {
+      padding-top: calc($space-l * 2);
+      @include p-18;
+    }
+
+    &__reason-second {
+      padding-top: calc($space-l * 2);
+      @include p-18;
+    }
+
+    &__reason-third {
+      padding-top: calc($space-l * 2);
+      @include p-18;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .text {
+    &__greeting {
+      @include p-18;
+    }
+
+    &__why {
+      padding-top: calc($space-m * 2);
+      @include p-14;
+    }
+
+    &__reason-first {
+      padding-top: calc($space-m * 2);
+      @include p-14;
+    }
+
+    &__reason-second {
+      padding-top: calc($space-m * 2);
+      @include p-14;
+    }
+
+    &__reason-third {
+      padding-top: calc($space-m * 2);
+      @include p-14;
+    }
+  }
+}

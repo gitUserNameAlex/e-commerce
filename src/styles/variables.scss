@@ -12,6 +12,8 @@ $button-primary-text-hover: #ffffff;
 $button-primary-bg-active: #acacec;
 $button-primary-text-active: #ffffff;
 
+$form-button-bg: #8a8bd9;
+
 $custom-button-bg: #e62654;
 $custom-button-bg-hover: #f35b7e;
 $custom-button-bg-active: #950c2c;
@@ -48,13 +50,11 @@ $brand-active: #acacec;
 $brand-hover: #60619e;
 
 $navbar-bg: #ffffff;
-$app-bg: #8a8bd9; //main-purple
+$form-bg: #ffffff;
+$app-bg: #8a8bd9;
 
 $my-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
 /* colors */
-//#8a8bd9 - main purple
-//#60619e - dark purple
-//#ACACEC - light purple or #BDBDEC
 
 /* fontWeights */
 $normal-weight: 400;
@@ -64,6 +64,8 @@ $bold-weight: 700;
 
 /* spaces */
 $page-padding: 100px;
+$page-padding-m: 50px;
+$page-padding-s: 30px;
 $space-xxl: 32px;
 $space-xl: 24px;
 $space-l: 20px;
@@ -90,6 +92,8 @@ $p-20: 20px;
 $p-18: 18px;
 $p-16: 16px;
 $p-14: 14px;
+$p-12: 12px;
+$p-10: 10px;
 /* fontSizes */
 
 /* mixins */

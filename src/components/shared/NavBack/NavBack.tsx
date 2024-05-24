@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import Text from 'components/ui/Text';
 import ArrowBackIcon from 'components/ui/icons/ArrowBackIcon';
 import { appRoutes } from 'config/routes';
-import styles from './ProductBack.module.scss';
+import styles from './NavBack.module.scss';
 
-const ProductBack: FC = () => {
+const NavBack: FC = () => {
   const navigate = useNavigate();
   const handleReturn = () => {
     navigate(appRoutes[1].path);
@@ -21,4 +21,4 @@ const ProductBack: FC = () => {
   );
 };
 
-export default ProductBack;
+export default NavBack;

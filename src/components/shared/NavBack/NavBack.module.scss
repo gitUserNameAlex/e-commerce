@@ -37,3 +37,12 @@
   -webkit-animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
   animation: text-focus-in 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
 }
+
+@media (max-width: 600px) {
+  .nav {
+    gap: 0px;
+    P {
+      font-size: $p-16;
+    }
+  }
+}

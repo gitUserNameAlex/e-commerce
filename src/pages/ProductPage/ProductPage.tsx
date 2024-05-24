@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react-lite';
 import queryString from 'query-string';
 import React, { FC, useEffect, useState } from 'react';
+import NavBack from 'components/shared/NavBack';
 import SingleProductStore from 'store/SingleProductStore';
-import ProductBack from './components/ProductBack';
 import ProductItem from './components/ProductItem';
 import ProductRelated from './components/ProductRelated';
 import styles from './ProductPage.module.scss';
@@ -22,8 +22,8 @@ const ProductPage: FC = observer(() => {
   }, [location.search]);
 
   return (
-    <div className={styles['product-page']}>
-      <ProductBack />
+    <div className={styles.product}>
+      <NavBack />
 
       <ProductItem store={store} />
 

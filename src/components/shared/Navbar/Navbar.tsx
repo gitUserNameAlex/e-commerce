@@ -1,18 +1,20 @@
+import { observer } from 'mobx-react-lite';
 import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import Text from 'components/ui/Text';
 import BagIcon from 'components/ui/icons/BagIcon';
 import LogoIcon from 'components/ui/icons/LogoIcon';
 import UserIcon from 'components/ui/icons/UserIcon';
+import CartStore from 'store/CartStore';
 import { menu } from './config/menu';
 import styles from './Navbar.module.scss';
 
-const Navbar: FC = () => {
+const Navbar: FC = observer(() => {
   return (
     <div className={styles.navbar}>
       <div className={styles.navbar__logo}>
         <NavLink to={'/'}>
-          <LogoIcon width={68} height={68} />
+          <LogoIcon width={68} height={68} className={styles['navbar__logo-icon']} />
         </NavLink>
       </div>
 
@@ -38,11 +40,18 @@ const Navbar: FC = () => {
       </nav>
 
       <div className={styles.navbar__personal}>
-        <UserIcon className={styles['navbar__personal-icon']} width={30} height={30} />
-        <BagIcon className={styles['navbar__personal-icon']} width={30} height={30} />
+        <UserIcon width={30} height={30} className={styles['navbar__personal-link__icon']} />
+        <NavLink to={'/cart'} className={styles['navbar__personal-link']}>
+          <BagIcon width={30} height={30} className={styles['navbar__personal-link__icon']} />
+          {CartStore.items.length > 0 ? (
+            <div className={styles['navbar__personal-link__text']}>{CartStore.items.length}</div>
+          ) : (
+            ''
+          )}
+        </NavLink>
       </div>
     </div>
   );
-};
+});
 
 export default Navbar;

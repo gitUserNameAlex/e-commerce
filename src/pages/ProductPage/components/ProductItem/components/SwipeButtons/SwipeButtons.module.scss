@@ -26,3 +26,29 @@
     transform: rotate(180deg);
   }
 }
+
+@media (max-width: 1200px) {
+  .nav {
+    top: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    top: 150px;
+
+    &__btn {
+      @include square(51px);
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .nav {
+    top: 130px;
+
+    &__btn {
+      @include square(41px);
+    }
+  }
+}

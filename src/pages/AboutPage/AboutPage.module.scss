@@ -55,3 +55,56 @@
     color: $text-mark;
   }
 }
+
+@media (max-width: 600px) {
+  .about {
+    padding: $page-padding-s;
+    gap: $space-xxl;
+
+    &__icon {
+      margin-top: calc($space-xl * 2);
+      @include square(200px);
+    }
+
+    &__text {
+      max-width: 80vw;
+      @include p-22;
+    }
+
+    &__text-name {
+      @include p-22;
+    }
+
+    &__link {
+      p {
+        @include p-18;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .about {
+    gap: $space-xl;
+
+    &__icon {
+      margin-top: calc($space-l * 2);
+      @include square(180px);
+    }
+
+    &__text {
+      max-width: 100vw;
+      @include p-20;
+    }
+
+    &__text-name {
+      @include p-20;
+    }
+
+    &__link {
+      p {
+        @include p-16;
+      }
+    }
+  }
+}

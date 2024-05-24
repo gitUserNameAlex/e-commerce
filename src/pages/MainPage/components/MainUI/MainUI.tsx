@@ -50,6 +50,13 @@ const MainUI: FC<MainUIProps> = observer(({ store }) => {
     navigate(`/?search=${searchQuery}&${categoryQuery}`);
   };
 
+  const handleClearSearch = () => {
+    setSearchQuery('');
+    setSelectedCategories([]);
+    navigate('/');
+    fetchInitialProducts('', []);
+  };
+
   const fetchInitialProducts = async (search: string, categoryIds: string[]) => {
     if (categoryIds.length > 0) {
       await store.fetchProductsByCategory(categoryIds);
@@ -84,9 +91,6 @@ const MainUI: FC<MainUIProps> = observer(({ store }) => {
           placeholder="Найти продукт"
           onChange={setSearchQuery}
         />
-        <Button className={styles['ui__search-btn']} onClick={handleSearch}>
-          Найти
-        </Button>
       </div>
       <div className={styles.ui__filter}>
         <MultiDropdown
@@ -96,6 +100,14 @@ const MainUI: FC<MainUIProps> = observer(({ store }) => {
           onChange={setSelectedCategories}
           getTitle={value => (value.length === 0 ? 'Фильтр' : value.map(v => v.value).join(', '))}
         />
+        <div className={styles['ui__filter-container']}>
+          <Button className={styles['ui__clear-btn']} onClick={handleClearSearch}>
+            Очистить
+          </Button>
+          <Button className={styles['ui__filter-btn']} onClick={handleSearch}>
+            Найти
+          </Button>
+        </div>
       </div>
 
       <div className={styles.ui__text}>

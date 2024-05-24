@@ -4,6 +4,7 @@ import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'components/ui/Button';
 import Card from 'components/ui/Card';
+import CartStore from 'store/CartStore';
 import DiscountStore from 'store/DiscountStore';
 import ProductsStore from 'store/ProductsStore';
 
@@ -16,8 +17,14 @@ interface MainProductsProps {
 
 const MainProducts: FC<MainProductsProps> = observer(({ store }) => {
   const navigate = useNavigate();
+
   const handleCard = (productID: string, categoryID: number) => {
     navigate(`/products-item?productID=${productID}&categoryID=${categoryID}`);
+  };
+
+  const handleAddToCart = (event: React.MouseEvent<HTMLButtonElement>, product: IProduct) => {
+    event.stopPropagation();
+    CartStore.addToCart(product);
   };
 
   return (
@@ -44,7 +51,11 @@ const MainProducts: FC<MainProductsProps> = observer(({ store }) => {
                 <span>{item.price}₽</span>
               )
             }
-            actionSlot={<Button className={styles.products__btn}>В корзину</Button>}
+            actionSlot={
+              <Button className={styles.products__btn} onClick={event => handleAddToCart(event, item)}>
+                В корзину
+              </Button>
+            }
             onClick={() => handleCard(item._id, item.category.id)}
           />
         </motion.div>

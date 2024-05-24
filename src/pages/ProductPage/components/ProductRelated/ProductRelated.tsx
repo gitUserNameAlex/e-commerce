@@ -6,6 +6,7 @@ import Button from 'components/ui/Button';
 import Card from 'components/ui/Card';
 import Text from 'components/ui/Text';
 import { PRODUCT_ITEM_URL } from 'config/endpoints';
+import CartStore from 'store/CartStore';
 import DiscountStore from 'store/DiscountStore';
 import SingleProductStore from 'store/SingleProductStore';
 import { IProduct } from 'types/interfaces';
@@ -22,11 +23,17 @@ const ProductRelated: FC<ProductRelatedProps> = observer(({ store }) => {
     store.setID(productID, categoryID);
     store.init();
     navigate(PRODUCT_ITEM_URL(productID, categoryID));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleAddToCart = (event: React.MouseEvent<HTMLButtonElement>, product: IProduct) => {
+    event.stopPropagation();
+    CartStore.addToCart(product);
   };
 
   return (
     <div className={styles.related}>
-      <Text weight="bold" color="primary" view="p-44">
+      <Text weight="bold" color="primary" view="p-44" className={styles.related__title}>
         Сопутствующие товары
       </Text>
       <div className={styles.related__list}>
@@ -55,7 +62,11 @@ const ProductRelated: FC<ProductRelatedProps> = observer(({ store }) => {
                     <span>{item.price}₽</span>
                   )
                 }
-                actionSlot={<Button className={styles['related__card-btn']}>В корзину</Button>}
+                actionSlot={
+                  <Button className={styles['related__card-btn']} onClick={event => handleAddToCart(event, item)}>
+                    В корзину
+                  </Button>
+                }
                 onClick={() => handleCard(item._id, item.category.id)}
               />
             </motion.div>

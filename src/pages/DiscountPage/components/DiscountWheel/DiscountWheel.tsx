@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import Button from 'components/ui/Button';
 import DiscountStore from 'store/DiscountStore';
@@ -8,7 +8,7 @@ import styles from './DiscountWheel.module.scss';
 const segments = [30, 5, 10, 15, 20, 25];
 const segmentColors = ['#000000', '#6e6faf', '#e62654', '#8a8bd9', '#f35b7e', '#60619e'];
 
-const DiscountWheel: React.FC = observer(() => {
+const DiscountWheel: FC = observer(() => {
   const [isSpinning, setIsSpinning] = useState(false);
   const [rotation, setRotation] = useState(0);
   const [props, api] = useSpring(() => ({

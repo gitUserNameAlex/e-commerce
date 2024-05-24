@@ -12,3 +12,16 @@
     gap: $space-xxl;
   }
 }
+
+@media (max-width: 650px) {
+  .main {
+    padding: $page-padding-m;
+  }
+}
+
+@media (max-width: 550px) {
+  .main {
+    padding: $page-padding-s;
+    gap: $space-xxl;
+  }
+}

@@ -55,3 +55,19 @@
     font-weight: $bold-weight;
   }
 }
+
+@media (max-width: 700px) {
+  .card {
+    &__title {
+      @include p-16;
+    }
+
+    &__subtitle {
+      @include p-14;
+    }
+
+    &__content-slot {
+      font-size: $p-14;
+    }
+  }
+}

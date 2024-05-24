@@ -37,8 +37,7 @@
     position: relative;
 
     img {
-      width: 600px;
-      height: 600px;
+      @include square(600px);
       border-radius: $border-r;
     }
   }
@@ -73,5 +72,130 @@
 
   &__content-buy {
     border-radius: $border-r;
+  }
+}
+
+@media (max-width: 1200px) {
+  .product {
+    flex-direction: column;
+    &__img {
+      img {
+        @include square(500px);
+      }
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__content-description {
+      padding-top: $space-l;
+      width: 70%;
+      text-align: center;
+    }
+
+    &__content-title {
+      text-align: center;
+    }
+
+    &__content-footer {
+      padding-left: 0;
+      padding-right: 0;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: calc($space-xxl * 2);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .product {
+    gap: $space-l;
+    flex-direction: column;
+    &__img {
+      img {
+        @include square(350px);
+      }
+    }
+
+    &__content-description {
+      padding-top: 0;
+      font-size: $p-18;
+    }
+
+    &__content-title {
+      text-align: center;
+      font-size: $p-22;
+    }
+
+    &__content-price {
+      font-size: $p-22;
+    }
+
+    &__content-footer {
+      padding-top: $space-m;
+      gap: calc($space-m * 2);
+    }
+
+    &__content-add {
+      height: 40px;
+      p {
+        font-size: $p-14;
+      }
+    }
+
+    &__content-buy {
+      height: 40px;
+      p {
+        font-size: $p-14;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .product {
+    gap: $space-m;
+    &__img {
+      img {
+        @include square(300px);
+      }
+    }
+
+    &__content-description {
+      padding-top: $space-s;
+      @include p-16;
+    }
+
+    &__content-title {
+      text-align: center;
+      @include p-20;
+    }
+
+    &__content-price {
+      font-size: $p-22;
+    }
+
+    &__content-footer {
+      padding-top: $space-xxs;
+      gap: calc($space-xxs * 2);
+    }
+
+    &__content-add {
+      height: 40px;
+      p {
+        font-size: $p-14;
+      }
+    }
+
+    &__content-buy {
+      height: 40px;
+      p {
+        font-size: $p-14;
+      }
+    }
   }
 }

@@ -60,6 +60,7 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       template: path.join(srcPath, 'index.html'),
+      favicon: './src/assets/favicon.ico',
     }),
     !isProd && new ReactRefreshWebpackPlugin(),
     isProd &&

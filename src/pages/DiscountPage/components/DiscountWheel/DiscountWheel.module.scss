@@ -86,3 +86,60 @@
     animation: text-focus-in 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
   }
 }
+
+@media (max-width: 600px) {
+  .wheel {
+    &__main {
+      @include square(300px);
+    }
+
+    &__marker {
+      @include square(30px);
+      margin-left: 300px;
+    }
+
+    &__btn {
+      margin-top: calc($space-l * 2);
+      width: 200px;
+      p {
+        font-size: $p-16;
+      }
+    }
+
+    &__discount {
+      margin-top: calc($space-m * 2);
+      font-size: $p-24;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .wheel {
+    &__main {
+      @include square(240px);
+    }
+
+    &__marker {
+      @include square(25px);
+      margin-left: 220px;
+    }
+
+    &__main-label {
+      font-size: $p-18;
+    }
+
+    &__btn {
+      margin-top: calc($space-l * 2);
+      width: 150px;
+      height: 40px;
+      p {
+        font-size: $p-12;
+      }
+    }
+
+    &__discount {
+      margin-top: calc($space-s * 2);
+      font-size: $p-18;
+    }
+  }
+}
