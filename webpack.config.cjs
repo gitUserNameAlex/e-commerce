@@ -40,7 +40,7 @@ module.exports = {
   output: {
     path: buildPath,
     filename: 'bundle.js',
-    publicPath: '/',
+    publicPath: './',
     //если dev режим - '/'
     //когда deploy - './'
   },
