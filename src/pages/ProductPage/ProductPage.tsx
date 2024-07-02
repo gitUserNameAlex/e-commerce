@@ -12,7 +12,7 @@ const ProductPage: FC = observer(() => {
 
   useEffect(() => {
     const params = queryString.parse(location.search);
-    const productID = params.productID as string;
+    const productID = parseInt(params.productID as string, 10);
     const categoryID = parseInt(params.categoryID as string, 10);
 
     if (productID && categoryID) {

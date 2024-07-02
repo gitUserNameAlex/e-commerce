@@ -19,7 +19,7 @@ interface ProductRelatedProps {
 const ProductRelated: FC<ProductRelatedProps> = observer(({ store }) => {
   const navigate = useNavigate();
 
-  const handleCard = (productID: string, categoryID: number) => {
+  const handleCard = (productID: number, categoryID: number) => {
     store.setID(productID, categoryID);
     store.init();
     navigate(PRODUCT_ITEM_URL(productID, categoryID));
@@ -41,7 +41,7 @@ const ProductRelated: FC<ProductRelatedProps> = observer(({ store }) => {
           store.relatedProducts.map((item: IProduct) => (
             <motion.div
               className={styles.related__motion}
-              key={item._id}
+              key={item.id}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 1.05 }}
             >
@@ -67,7 +67,7 @@ const ProductRelated: FC<ProductRelatedProps> = observer(({ store }) => {
                     В корзину
                   </Button>
                 }
-                onClick={() => handleCard(item._id, item.category.id)}
+                onClick={() => handleCard(item.id, item.category.id)}
               />
             </motion.div>
           ))}

@@ -9,7 +9,7 @@ import { IProduct } from 'types/interfaces';
 import styles from './CartProducts.module.scss';
 
 const CartProducts: FC = observer(() => {
-  const handleRemoveFromCart = (productId: string) => {
+  const handleRemoveFromCart = (productId: number) => {
     CartStore.removeFromCart(productId);
   };
 
@@ -18,7 +18,7 @@ const CartProducts: FC = observer(() => {
       {CartStore.items.map(({ product, quantity }) => (
         <Card
           className={styles.list__item}
-          key={product._id}
+          key={product.id}
           image={product.images[0]}
           captionSlot={product.category.name}
           title={product.title}
@@ -40,7 +40,7 @@ const CartProducts: FC = observer(() => {
               <Text color="accent" view="p-14" align="center" className={styles['list__item-text']}>
                 Количество: {quantity}
               </Text>
-              <Button className={styles['list__item-btn']} onClick={() => handleRemoveFromCart(product._id)}>
+              <Button className={styles['list__item-btn']} onClick={() => handleRemoveFromCart(product.id)}>
                 Удалить
               </Button>
             </>

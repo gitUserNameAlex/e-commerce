@@ -27,7 +27,7 @@ class ProductsStore {
       const resp = await axios.get(`${PRODUCTS_ENDPOINT}${query}`);
       runInAction(() => {
         this.products = resp.data.map((product: IProduct) => ({
-          _id: product._id,
+          id: product.id,
           images: product.images,
           category: product.category,
           title: product.title,
@@ -53,7 +53,7 @@ class ProductsStore {
       }
       runInAction(() => {
         this.products = products.map((product: IProduct) => ({
-          _id: product._id,
+          id: product.id,
           images: product.images,
           category: product.category,
           title: product.title,

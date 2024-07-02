@@ -5,7 +5,7 @@ import ImgNavStore from 'store/ImgNavStore';
 import { IProduct, RequestStatus } from 'types/interfaces';
 
 class SingleProductStore {
-  productID: string | null = null;
+  productID: number | null = null;
   categoryID: number | null = null;
   product: IProduct | null = null;
   relatedProducts: IProduct[] = [];
@@ -29,7 +29,7 @@ class SingleProductStore {
     });
   }
 
-  setID(productID: string, categoryID: number) {
+  setID(productID: number, categoryID: number) {
     this.productID = productID;
     this.categoryID = categoryID;
   }
@@ -40,7 +40,7 @@ class SingleProductStore {
       const resp = await axios.get(SINGLE_PRODUCT_ENDPOINT(this.productID));
       runInAction(() => {
         this.product = {
-          _id: resp.data._id,
+          id: resp.data.id,
           images: resp.data.images,
           category: resp.data.category,
           title: resp.data.title,
@@ -64,7 +64,7 @@ class SingleProductStore {
       const resp = await axios.get(RELATED_PRODUCTS_ENDPOINT(this.categoryID));
       runInAction(() => {
         this.relatedProducts = resp.data.map((relatedItem: IProduct) => ({
-          _id: relatedItem._id,
+          id: relatedItem.id,
           images: relatedItem.images,
           category: relatedItem.category,
           title: relatedItem.title,

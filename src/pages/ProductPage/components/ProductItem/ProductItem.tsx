@@ -16,8 +16,6 @@ const ProductItem: FC<ProductItemProps> = observer(({ store }) => {
   const handleAddToCart = (event: React.MouseEvent<HTMLButtonElement>, product: IProduct | null) => {
     if (product) {
       CartStore.addToCart(product);
-    } else {
-      console.warn('Product is null, cannot add to cart');
     }
   };
 

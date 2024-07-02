@@ -43,8 +43,8 @@ const Navbar: FC = observer(() => {
         <UserIcon width={30} height={30} className={styles['navbar__personal-link__icon']} />
         <NavLink to={'/cart'} className={styles['navbar__personal-link']}>
           <BagIcon width={30} height={30} className={styles['navbar__personal-link__icon']} />
-          {CartStore.items.length > 0 ? (
-            <div className={styles['navbar__personal-link__text']}>{CartStore.items.length}</div>
+          {CartStore.totalItems > 0 ? (
+            <div className={styles['navbar__personal-link__text']}>{CartStore.totalItems}</div>
           ) : (
             ''
           )}

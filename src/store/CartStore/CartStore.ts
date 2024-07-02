@@ -1,4 +1,4 @@
-import { makeObservable, observable, action } from 'mobx';
+import { makeObservable, observable, action, computed } from 'mobx';
 import { IProduct } from 'types/interfaces';
 
 class CartStore {
@@ -11,13 +11,14 @@ class CartStore {
       removeFromCart: action,
       loadCart: action,
       saveCart: action,
+      totalItems: computed,
     });
 
     this.loadCart();
   }
 
   addToCart(product: IProduct) {
-    const existingItem = this.items.find(item => item.product._id === product._id);
+    const existingItem = this.items.find(item => item.product.id === product.id);
     if (existingItem) {
       existingItem.quantity += 1;
     } else {
@@ -26,13 +27,13 @@ class CartStore {
     this.saveCart();
   }
 
-  removeFromCart(productId: string) {
-    const existingItem = this.items.find(item => item.product._id === productId);
+  removeFromCart(productId: number) {
+    const existingItem = this.items.find(item => item.product.id === productId);
     if (existingItem) {
       if (existingItem.quantity > 1) {
         existingItem.quantity -= 1;
       } else {
-        this.items = this.items.filter(item => item.product._id !== productId);
+        this.items = this.items.filter(item => item.product.id !== productId);
       }
     }
     this.saveCart();
@@ -47,6 +48,10 @@ class CartStore {
     if (cart) {
       this.items = JSON.parse(cart);
     }
+  }
+
+  get totalItems() {
+    return this.items.reduce((total, item) => total + item.quantity, 0);
   }
 }
 
